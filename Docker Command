@@ -1,0 +1,31 @@
+http://mherman.org/blog/2017/12/07/dockerizing-a-react-app/#.WjCVjlQ-fBI
+
+1. create .dockerignore    // node_modules
+2  create Dockerfile
+# base image
+FROM node:9.2.1   //latest image
+
+# set working directory
+RUN mkdir /usr/src/app
+WORKDIR /usr/src/app
+
+# add `/usr/src/app/node_modules/.bin` to $PATH
+ENV PATH /usr/src/app/node_modules/.bin:$PATH
+
+# install and cache app dependencies
+ADD package.json /usr/src/app/package.json
+RUN npm install --silent
+RUN npm install react-scripts@1.0.17 -g --silent
+
+# start app
+CMD ["npm", "start"]
+
+Build & Tag : $ docker build -t upliftingquotes .   //example
+Spin It Up : $ docker run -it -v ${PWD}:/usr/src/app -p 3000:3000 --rm upliftingquotes
+WebBrowser: localhost://3000
+
+//Docker
+$ docker login
+$ docker image ls -a    // list local docker images, see REPOSITORY name and TAG
+$ docker tag upliftingquotes d.tm/upliftingquotes:latest
+$ docker push d.tm/upliftingquotes:latest    // pushes to Docker Hub
