@@ -1,0 +1,33 @@
+What is Docker?
+Docker is software. Docker use to create isolated containers for our applications to make a package with all dependancy software and code. 
+Containers in Docker contains, 
+1. application code, 
+2. required tools and dependent libraries to execute a code
+Docker used to deploy applications in any environment.
+
+Docker advantages:
+1. Docker containers are lightweight
+2. Docker containers can be execute in a few seconds
+3. it helps to developers to quickly run their code to test
+
+Docker Disadvantages:
+Docker does not provide any security features
+
+Docker tools: Docker tools allow users to manage their containers more easily and make them more secure by adding additional layers of protection.
+1. Docker Compose
+2. Docker Hub
+3. Docker Swarm
+
+
+
+//////Example//////////////////////////////////////////////////////
+
+FROM node:latest   		//required software to run project
+RUN mkdir -p /app/src                    
+WORKDIR /app/src
+COPY package.json /app/src     //copy source to destination
+RUN npn install
+COPY . .      //copy all from current source to destination
+EXPOSE 3000    //expose port
+
+CMD ['npm', "start"]       	//command start
