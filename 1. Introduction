@@ -22,12 +22,12 @@ Docker tools: Docker tools allow users to manage their containers more easily an
 
 //////Example//////////////////////////////////////////////////////
 
-FROM node:latest   		//required software to run project
-RUN mkdir -p /app/src                    
+FROM node:latest   		          //add required software to run project
+RUN mkdir -p /app/src           //create a folder for docker contrainer         
 WORKDIR /app/src
-COPY package.json /app/src     //copy source to destination
-RUN npn install
-COPY . .      //copy all from current source to destination
-EXPOSE 3000    //expose port
+COPY package.json /app/src      //copy source(package.json) to destination(/app/src)
+RUN npm install                 //install npm
+COPY . .                        //copy all from current source to destination(/app/src)
+EXPOSE 3000                     //expose port
 
-CMD ['npm', "start"]       	//command start
+CMD ['npm', "start"]       	    //command start
