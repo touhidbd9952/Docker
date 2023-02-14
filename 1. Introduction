@@ -22,7 +22,7 @@ Docker tools: Docker tools allow users to manage their containers more easily an
 
 //////Example//////////////////////////////////////////////////////
 
-FROM node:latest   		          //add required software to run project
+FROM node:latest   		      //add required software to run project
 RUN mkdir -p /app/src           //create a folder for docker contrainer         
 WORKDIR /app/src
 COPY package.json /app/src      //copy source(package.json) to destination(/app/src)
