@@ -1,0 +1,147 @@
+in this tutorial, you will learn:
+---------------------------------------
+////How to install docker software in pc
+////How to create docker container file in local pc
+////How to create docker-project file in docker hub 
+////How to upload docker-container file from pc to docker hub
+
+
+//check docker is install in your pc or not
+
+	docker version
+
+//install docker in pc
+1. open browser and type "get docker"
+2. select "Docker Desktop For Windows" and download
+3. install docker and restart pc
+4. accept docker licence agreement
+5. wsl2 install (for vertualization)
+	a. click on its provided link
+	b. Enable the Windows Subsystem for Linux
+
+		i. copy the code
+		ii. open "power shell" run as administrator
+		iii. paste the code in power shell
+		iv. Enable Virtual Machine feature
+		    1. copy the code and paste in power shell
+		v. Download the Linux kernel update package and install it
+		vi. Set WSL 2 as your default version
+		    1. copy the code and paste in power shell
+	c. Restart your pc
+
+6. Open Docker and click on start
+7. Check docker version (open command prompt)
+
+	docker version
+
+//////////////////////////////// Working With Docker ///////////////////////////////////////////////////////////////////
+
+1. create a folder in d: drive "dockertest"
+2. open "dockertest" folder in vscode
+3. create a file in "dockertest" folder as "app.js"  //you can give any file name
+    in "app.js"
+    ----------------------
+	let scoope = 5;
+	
+	while(scoope > 0){
+	    console.log(`Task remaining &{scoope}`);
+	    scoope = scoope -1;
+	}
+
+4. open terminal in vscode and run "app.js"
+	
+	node app.js
+
+///////////////////Create Docker Container////////////////////////////////////////////////////////////////////////////
+
+5. create a file in "dockertest" folder as "Dockerfile"
+
+      if you first time create Dockerfile in your pc, vscode provide a link to install docker extention
+      in vscode. install it
+
+      in "Dockerfile"
+      -----------------------------------
+      //write the source, from where docker will run (baseimage)
+  
+	FROM node:alpine         //to run our project we need  "node" and server is linux alpine 
+			     //if you create react container "FROM react:alpine"
+
+	COPY . /app	     //copy to where (in root directory, it will create a folder name "app")
+	WORKDIR /app             //workdir whick folder (app)
+	CMD node app.js           //how to run this project (by using command prompt)
+
+6. Build Docker Container in your pc
+
+	open terminal in vscode
+
+	docker build -t dockertest .        //-t: tag  , dockertest:our docker file name, (.) is destination (current directory)
+
+7. Check Dockerfile created or not
+
+	go to d: drive and open "Dockerfile" folder in command prompt:
+	
+		docker images        //you will see docker file
+
+                   run docker file:
+
+		docker run dockertest         // docker run dockerfilename
+
+8. create account in "hub.docker.com"
+
+	a. open browser and type "docker hub"
+	b. create account in "docker hub"
+
+9. login to docker account from vscode terminal
+
+	docker login
+
+	Username:your docker account username
+	Password: your docker account password
+	
+		docker images  //view docker image in your pc
+
+	//create docker container file in your pc before push
+
+		docker tag yourdocker-image-id dockerAccountUsername/dockertest
+
+	//check docker container file is created or not
+
+		docker images  //view docker image in your pc
+		
+	//push docker container file to docker hub server
+
+		docker push dockerAccountUsername/dockertest 
+
+10. after upload finish, check in docker hub
+
+
+////// Download Docker Image from docker hub and run in other pc///////////////////////////////////////////////////////////////////
+
+1. Download Docker Image from docker hub server
+
+
+2. in new pc, install docker software and check installed or not
+
+	docker version
+
+   or, we can run docker file from online
+
+	1. open browser and type "play with docker" and login by docker
+	2. use docker hub username and password for login
+	3. click on "add new instance"
+
+		docker version   //check docker version here
+		docker images   //check any docker container file is previously exist not
+		docker pull dockerAccountUsername/dockertest   //download docker container image file
+		docker run dockerAccountUsername/dockertest  //run our docker container file
+
+
+	
+
+
+
+         
+
+
+
+		
