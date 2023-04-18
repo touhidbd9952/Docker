@@ -44,7 +44,7 @@ in this tutorial, you will learn:
 	let scoope = 5;
 	
 	while(scoope > 0){
-	    console.log(`Task remaining &{scoope}`);
+	    console.log(`Task remaining ${scoope}`);
 	    scoope = scoope -1;
 	}
 
@@ -66,7 +66,7 @@ in this tutorial, you will learn:
 	FROM node:alpine         //to run our project we need  "node" and server is linux alpine 
 			     //if you create react container "FROM react:alpine"
 
-	COPY . /app	     //copy to where (in root directory, it will create a folder name "app")
+	COPY . /app	     //copy source destination (in root directory, it will create a folder name "app")
 	WORKDIR /app             //workdir whick folder (app)
 	CMD node app.js           //how to run this project (by using command prompt)
 
@@ -102,11 +102,11 @@ in this tutorial, you will learn:
 
 	//create docker container file in your pc before push
 
-		docker tag yourdocker-image-id dockerAccountUsername/dockertest
+		docker tag yourdocker-image-id dockerAccountUsername/dockertest  //create a new file for server "docker tag yourdocker-image-id newName"
 
 	//check docker container file is created or not
 
-		docker images  //view docker image in your pc
+		docker images  //view docker image in your pc to check new file is created or not
 		
 	//push docker container file to docker hub server
 
