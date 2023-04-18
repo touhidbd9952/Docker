@@ -1,0 +1,41 @@
+.dockerignore
+-----------------------
+node_modules
+Dockerfile
+.git
+
+Dockerfile
+-----------------
+FROM node:17-alpine        //FROM node:latest
+
+WORKDIR /app
+
+COPY package.json .           //COPY package.json ./
+
+RUN npm install
+
+COPY  .  .
+
+EXPOSE 3000
+
+CMD ["npm", "start"]
+
+
+Terminal
+------------------
+docker build -t docker-react:latest .   //docker build -t dockerimagefilename:version pathofdockerefile
+docker run --name docker-container -d -p 3000:3000 react1:latest
+//check in browser
+localhost:3000
+
+//upload to docker hub
+docker login
+docker tag docker-1 react1/docker-1     //docker tag tagname setuploadfilename
+docker push react1/docker   //docker push uploadfilename
+docker rmi react1  //remove react1 docker file
+docker exec dockerparticularfileid stop  //stop particular docker file to execute
+
+
+for more help: https://www.youtube.com/watch?v=eX71RYJBWv0
+
+
