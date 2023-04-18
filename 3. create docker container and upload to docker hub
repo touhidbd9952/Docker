@@ -15,18 +15,18 @@ in this tutorial, you will learn:
 2. select "Docker Desktop For Windows" and download
 3. install docker and restart pc
 4. accept docker licence agreement
-5. wsl2 install (for vertualization)
-	a. click on its provided link
-	b. Enable the Windows Subsystem for Linux
+5. wsl2 install (for vertualization)  (go to https://docs.docker.com/desktop/windows/wsl/)
+	a. "Downloaded and installed the Linux kernel update package" click on its provided link (href="https://docs.microsoft.com/windows/wsl/wsl2-kernel)
+	b. Enable the Windows Subsystem for Linux 
 
-		i. copy the code
+		i. copy the code "dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart"
 		ii. open "power shell" run as administrator
 		iii. paste the code in power shell
 		iv. Enable Virtual Machine feature
-		    1. copy the code and paste in power shell
-		v. Download the Linux kernel update package and install it
+		    1. copy the code and paste in power shell  "dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart"
+		v. Download the Linux kernel update package and install it (click on WSL2 Linux kernel update package for x64 machines "https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi")
 		vi. Set WSL 2 as your default version
-		    1. copy the code and paste in power shell
+		    1. copy the code and paste in power shell "wsl --set-default-version 2"
 	c. Restart your pc
 
 6. Open Docker and click on start
