@@ -32,12 +32,13 @@ localhost:3000
 -----------------------
 docker login
 
-
-docker tag yourDockerImageIDThatIsCreated yourDockerServerRepositoryNameThatWillBeCreate     //docker tag tagname setuploadfilename
+//create one new file with "yourdockerAccountUsername/give-a-name-of-your-upload-docker-file" from yourdocker-image-id
+----------------------------------------------------------------------------------------------------------------------
+docker tag yourdocker-image-id yourdockerAccountUsername/give-a-name-of-your-upload-docker-file   //docker tag yourdocker-image-id touhidbd9952/docker-react
 
 //upload to server
 -------------------
-docker push yourDockerServerRepositoryName   //docker push uploadfilename
+docker push yourdockerAccountUsername/give-a-name-of-your-upload-docker-file   //docker push uploadfilename
 
 //removed unused docker container
 ------------------------------------
