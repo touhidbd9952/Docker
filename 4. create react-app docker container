@@ -23,16 +23,28 @@ CMD ["npm", "start"]
 
 Terminal
 ------------------
-docker build -t docker-react:latest .   //docker build -t dockerimagefilename:version pathofdockerefile
-docker run --name docker-container -d -p 3000:3000 react1:latest
+docker build -t docker-react:latest .   //"docker-react" is docker build file name, :latest is version, you can give v001, v1
+docker run --name setNameOfYourDockerContainerForLocalRepository -d -p 3000:3000 docker-react:latest
 //check in browser
 localhost:3000
 
-//upload to docker hub
+//login to docker hub
+-----------------------
 docker login
-docker tag docker-1 react1/docker-1     //docker tag tagname setuploadfilename
-docker push react1/docker   //docker push uploadfilename
+
+
+docker tag yourDockerImageIDThatIsCreated yourDockerServerRepositoryNameThatWillBeCreate     //docker tag tagname setuploadfilename
+
+//upload to server
+-------------------
+docker push yourDockerServerRepositoryName   //docker push uploadfilename
+
+//removed unused docker container
+------------------------------------
 docker rmi react1  //remove react1 docker file
+
+to stop particular docker container
+--------------------------------------
 docker exec dockerparticularfileid stop  //stop particular docker file to execute
 
 
